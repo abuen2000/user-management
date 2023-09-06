@@ -2,6 +2,8 @@ package com.usermanageent.usermanagement.controller;
 
 import com.usermanageent.usermanagement.dto.UserDTO;
 import com.usermanageent.usermanagement.entity.User;
+import com.usermanageent.usermanagement.exception.ApplicationException;
+import com.usermanageent.usermanagement.exception.NotFoundException;
 import com.usermanageent.usermanagement.mapper.UserMapper;
 import com.usermanageent.usermanagement.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +28,7 @@ public class UserController {
                 .map(userService::save)
                 .map(userMapper::asUserDTO)
                 .map(ResponseEntity::ok)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(ApplicationException::new);
     }
 
     @PutMapping("/{id}")
@@ -40,8 +42,8 @@ public class UserController {
                     .map(userService::save)
                     .map(userMapper::asUserDTO)
                     .map(ResponseEntity::ok)
-                    .orElseThrow(RuntimeException::new);
-        }).orElseThrow(RuntimeException::new);
+                    .orElseThrow(ApplicationException::new);
+        }).orElseThrow(NotFoundException::new);
     }
 
     @GetMapping
@@ -57,7 +59,7 @@ public class UserController {
         return userService.getUserById(id)
                 .map(userMapper::asUserDTO)
                 .map(ResponseEntity::ok)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(NotFoundException::new);
     }
 
 }
