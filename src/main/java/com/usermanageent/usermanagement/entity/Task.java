@@ -20,4 +20,5 @@ public class Task {
     private String name;
     private String description;
     private String dateTime;
+    private String status;
 }

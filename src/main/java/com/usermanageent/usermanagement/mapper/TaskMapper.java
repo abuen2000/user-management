@@ -18,6 +18,7 @@ public interface TaskMapper {
     @Mapping(target = "userId", ignore = true)
     @Mapping(target = "description", ignore = true)
     @Mapping(target = "dateTime", ignore = true)
+    @Mapping(target = "status", ignore = true)
     void updateTaskFromDTO(TaskDTO taskDTO, @MappingTarget Task task);
 
 }

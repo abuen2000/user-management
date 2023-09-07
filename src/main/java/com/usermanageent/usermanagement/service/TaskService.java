@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,4 +32,14 @@ public class TaskService {
     public Page<Task> getAllUserTask(Long userId, int page, int pageSize) {
         return taskRepository.findAllByPage(userId, PageRequest.of(page, pageSize));
     }
+
+    public void findByDateTimeLessThanOrStatusEqualsIgnoreCase(LocalDateTime dateTime, String status) {
+        List<Task> tasks = taskRepository.findByDateTimeLessThanOrStatusEqualsIgnoreCase(dateTime, status);
+        for (Task task : tasks) {
+            task.setStatus("Done");
+            taskRepository.save(task);
+        }
+    }
+
+
 }
