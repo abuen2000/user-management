@@ -17,7 +17,8 @@ A backend system that will perform basic CRUD operations.
     2. Right-click then select Run/Debug.
     3. This will run the Spring Boot application - below is the expected logs at startup.
 
-![](../../Desktop/Screen Shot 2023-09-07 at 2.37.00 PM.png)
+![](start.png)
+
 
 ## B. Test REST API using Postman or curl
 ### B.1. User Management
@@ -81,3 +82,6 @@ curl --location --request GET 'http://localhost:8080/api/users/tasks/{task_id}'
 ```
 curl --location --request GET 'http://localhost:8080/api/users/{user_id}/tasks'
 ```
+
+###### Sample Postman create user response;
+![](postUserResponse.png)
