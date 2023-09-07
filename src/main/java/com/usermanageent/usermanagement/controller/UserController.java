@@ -38,7 +38,7 @@ public class UserController {
 
         return optionalUser.map(existingUser -> {
             userMapper.updateUserFromDTO(userDTO, existingUser); // Update the existing user
-           return Optional.ofNullable(existingUser)
+           return Optional.of(existingUser)
                     .map(userService::save)
                     .map(userMapper::asUserDTO)
                     .map(ResponseEntity::ok)

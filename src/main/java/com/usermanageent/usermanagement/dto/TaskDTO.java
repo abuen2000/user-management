@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,5 +14,5 @@ public class TaskDTO {
     private Long userId;
     private String name;
     private String description;
-    private Date date_time;
+    private String dateTime;
 }

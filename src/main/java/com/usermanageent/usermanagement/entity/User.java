@@ -18,6 +18,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String userName;
-    private String firs_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
 }
